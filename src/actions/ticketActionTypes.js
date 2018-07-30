@@ -1,0 +1,9 @@
+export const LOADING = 'LOADING';
+export const ONE = 'ONE';
+export const TWO = 'TWO';
+export const THREE = 'THREE';
+export const FOUR = 'FOUR';
+export const ONE_BALL = 'ONE_BALL';
+export const TWO_BALL = 'TWO_BALL';
+export const THREE_BALL = 'THREE_BALL';
+export const FOUR_BALL = 'FOUR_BALL';

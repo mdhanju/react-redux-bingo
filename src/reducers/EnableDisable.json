@@ -1,0 +1,47 @@
+{
+    "testDescription": ["AU PAD enable disbale use case where the buyer has a confirmed bank in wallet and has unenrolled in PAD,",
+                        "after login, user lands on the review page, PAD checkbox is not displayed",
+                        "on Continue button, hermes return back to merchant page, then merchant call DoEC to",
+                        "finish the transaction."
+    ],
+    "steps": [{
+            "@type": "CreateUser",
+            "country": "AU",
+            "type": "Business",
+            "amount": 10000000,
+            "currency": "AUD",
+            "creditcard": true,
+            "setPrivateVar": "vendor"
+        },
+        {
+            "@type": "CreateUser",
+            "country": "AU",
+            "type": "Personal",
+            "amount": 0,
+            "currency": "AUD",
+            "creditcard": false,
+            "bankAccount": true,
+            "setPrivateVar": "client"
+        },
+        {
+            "@type": "RunTest",
+            "test": "//common/PadEnableDisableAndLogIn"
+        },
+        {
+            "@type": "RunTest",
+            "test": "//common/PadValidateNotDisplayed"
+        },
+        {
+            "@type": "RunTest",
+            "test": "//common/SubmitReviewOnly"
+        },
+        {
+            "@type": "RunTest",
+            "test": "//common/VerifyReturnToMerchant"
+        },
+        {
+            "@type": "RunTest",
+            "test": "//common/CompleteExpressCheckout"
+        }
+    ]
+}
